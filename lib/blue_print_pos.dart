@@ -141,7 +141,7 @@ class BluePrintPos {
   /// [feedCount] to create more space after printing process done
   /// [useCut] to cut printing process
   Future<void> printReceiptImage(
-    List<int> bytes, {
+    Uint8List bytes, {
     int width = 120,
     int feedCount = 0,
     bool useCut = false,
@@ -169,7 +169,7 @@ class BluePrintPos {
     int feedCount = 0,
     bool useCut = false,
   }) async {
-    final List<int> byteBuffer = await _getQRImage(data, size.toDouble());
+    final Uint8List byteBuffer = await _getQRImage(data, size.toDouble());
     printReceiptImage(
       byteBuffer,
       width: size,
@@ -218,7 +218,7 @@ class BluePrintPos {
   /// [feedCount] to generate byte buffer as feed in receipt.
   /// [useCut] to cut of receipt layout as byte buffer.
   Future<List<int>> _getBytes(
-    List<int> data, {
+    Uint8List data, {
     PaperSize paperSize = PaperSize.mm58,
     int customWidth = 0,
     int feedCount = 0,
